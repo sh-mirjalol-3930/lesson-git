@@ -12,6 +12,7 @@
     font-family: "Montserrat";
     text-decoration: none;
     color: var(--dark-color);
+    transition: all 0.5s ease;
 }
 
 
@@ -22,6 +23,10 @@ body{
     
 }
 
+.row{
+    display: flex;
+    justify-content: space-between;
+}
 
 .container{
     max-width: 1220px;
@@ -68,13 +73,28 @@ section{
     background: linear-gradient(90deg,#C7DFF5,#EFAFBC) ;
 }
 
-.row{
+
+
+.the-row{
+    width: 100%;
+    height: calc(100vh - 200px);
+    /* background-color: gray; */
+    display: flex;
+    /* flex-direction: column; */
+    /* margin: 0 auto; */
+}
+
+.the-row #row{
     align-items: center;
     display: flex;
+    gap: 250px;
     justify-content: space-between;
 }
 
 
+.icons{
+    margin-top: 50px;
+}
 
 
 .icons .row{
@@ -88,6 +108,7 @@ section{
 }
 
 section .text{
+    z-index: +1;
     align-items: baseline;
     display: flex;
     gap: 20px;
@@ -115,7 +136,7 @@ section .text{
     font-weight: 400;
 }
 
-.text button{
+.text .buy-btn{
     margin-top: 20px;
     font-weight: 600;
     box-shadow: 0 0 20px #79BCCF;
@@ -124,10 +145,33 @@ section .text{
     border-radius: 50px;
     padding: 10px 40px;
     font-size: 16px;
+    animation-name: btn-shadow;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: inherit;
+    animation-direction: alternate;
+    animation-timing-function: cubic-bezier(1, 1, 1, 1);
+}
+
+@keyframes btn-shadow{
+    0%{
+        box-shadow: 10px 5px 10px #ff1d1d;
+    }
+    25%{
+        box-shadow: -10px -5px 20px #00ffbf;
+    }
+    50%{
+        box-shadow: 0 0 5px #ff00ea;
+    }
+    100%{
+        box-shadow: 0 0 50px #00c3ff;
+    }
 }
 
 
+
 section .card{
+    z-index: +1;
     background-color: transparent;
     width: 1500px;
     height: 400px;
@@ -143,25 +187,59 @@ section .card{
     left: 400px;  
     /* z-index: -1;  */
     animation-name: back;
-    animation-duration: 5s;
+    animation-duration: 3s;
     transition: all 0.5s ease;
     animation-fill-mode: backwards;
     animation-iteration-count: infinite;
-    animation-direction: reverse;
+    animation-direction: alternate-reverse;
+    animation-timing-function: cubic-bezier(1, 1, 1, 1);
 }
 
 @keyframes back{
     0%{
-        transform: scale(1);
+        transform: scale(1.3);
     }
     25%{
-        transform: translateY(-90px);
-    }
-    50%{
-        transform: rotate(10deg);
+        transform: translateX(20px) rotateY(20deg) scale(1.3) skewX(20deg);
     }
     100%{
-        transform: translateY(90deg);
+        transform: rotateX(15deg) scale(1.3) skewY(5deg);
+    }
+}
+
+
+
+
+.right-back{
+    margin-top: -70px;
+    width: 450px;
+    height: 200px;
+    position: absolute;
+    margin-left: 1000px;
+    transform: skewX(10deg);
+    align-items: center;
+    background-color: #fc7a942a;
+}
+.right-back .right-back-pic{
+    width: 300px;
+    display: flex;
+    margin-top: -90px;
+    margin-left: -100px;
+    animation-name: next;
+    animation-duration: 3s;
+    transition: all 1s ease;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-fill-mode: initial;
+    animation-timing-function: cubic-bezier(0, 1, 1, 1);
+}
+
+@keyframes next{
+    0%{
+        transform: translateX(0px);
+    }
+    100%{
+        transform: translate(100px);
     }
 }
 
@@ -170,4 +248,123 @@ section .card{
 
 
 
+.jacket-blue{
+    margin-top: -50px;
+    width: 300px;
+    margin-left: 50px;
+}
 
+
+
+.dots{
+    width: 350px;
+}
+
+.dot .mini-ball{
+    position: absolute;
+    border-radius: 50px;
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    display: flex;
+    border: 3px solid white;
+}
+
+.dot #first-ball{
+    width: 30px;
+    height: 30px;
+    border: 4px solid white;
+    margin-left: -32px;
+    margin-top: -3px;
+    background-color: #79BCCF;
+}
+
+.dot #second-ball{
+    margin-left: 205px;
+    background-color: black;
+}
+.dot #last-ball{
+    margin-left: 352px;
+    background-color: #EFAFBC;
+}
+
+
+.top-cards{
+    margin-top: 30px;
+    margin-left: -45px;
+    width: 450px;
+    /* background-color: #44444454; */
+    /* overflow: hidden; */
+}
+
+.top-cards img{
+    position: absolute;
+    width: 60px;
+    transition: all 0.5s ease;
+}
+.top-cards .card{
+    display: flex;
+    width: 180px;
+    height: 70px;
+    transition: all 0.5s ease;
+    /* overflow: hidden; */
+}
+
+.top-cards .card .text{
+    overflow: hidden;
+}
+.top-cards .card .text b{
+    color: #444444;
+    transform: translateX(-150px);
+    transition: all 0.7s ease;
+    font-size: 15px;
+}
+.top-cards .card .text p{
+    color: #444444;
+    transform: translateX(-150px);
+    transition: all 0.7s ease;
+}
+.top-cards .card:hover{
+    border-radius: 10px;
+    background-color: white;
+}
+.top-cards .card:hover b{
+    transform: translateX(70px) translateY(10px);
+}
+.top-cards .card:hover p{
+    transform: translateX(70px);
+}
+
+.top-cards .card .text p span{
+    margin-left: 10px;
+    font-size: 10px;
+    text-decoration: line-through red;
+}
+
+.top-cards .card:hover img{
+    z-index: +5;
+    transform:  translateY(-10px) scale(1.2);
+}
+
+.top-cards .rowi{
+    display: flex;
+}
+
+.top-cards #second-card{
+    transform: translateX(50px);
+}
+.top-cards #second-card:hover{
+    transform: translateX(-10px);
+}
+.top-cards #last-card{
+    transform: translateX(20px);
+}
+.top-cards #last-card:hover{
+    transform: translateX(-20px);
+}
+.top-cards #second-card img{
+    position: absolute;
+}
+.mini-ball:hover{
+    transform: scale(1.5);
+}
